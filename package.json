@@ -1,0 +1,31 @@
+{
+  "name": "kanban-javascript",
+  "version": "1.0.0",
+  "description": "A Kanban board for our group capstone project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack serve --open",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonas-45/Kanban-Javascript.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jonas-45/Kanban-Javascript/issues"
+  },
+  "homepage": "https://github.com/jonas-45/Kanban-Javascript#readme",
+  "devDependencies": {
+    "html-webpack-plugin": "^5.5.0",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.11.1"
+  },
+  "dependencies": {
+    "html-loader": "^4.2.0"
+  }
+}
