@@ -8,9 +8,9 @@ const displayMeals = async () => {
   displayContainer.innerHTML = "";
 
   const getAllMeals = await getMeals();
-  console.log(getAllMeals);
+  let mealsHtml = "";
   getAllMeals.forEach(meal => {
-    displayContainer += `<div class="card">
+    mealsHtml += `<div class="card">
     <img class="meal-image" src="${meal.strMealThumb}/preview" alt="meal image">
     <div class="meal-data">
       <label>${meal.strMeal}</label>
@@ -20,6 +20,8 @@ const displayMeals = async () => {
     <button type="button" class="comment-button">Comments</button>
   </div>`;
   });
+
+  displayContainer.innerHTML = mealsHtml;
 }
 
 displayMeals();
