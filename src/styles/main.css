@@ -1,3 +1,61 @@
-body {
-  background-color: bisque;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+body{
+  background-color: darksalmon;
+  margin: 0;
 }
+
+header{
+  background-color: azure;
+  height: 90px;
+}
+
+.container {
+  width: 96%;
+  height: 100%;
+  margin: 0 auto;
+  padding: px 0;
+  margin-top: 2px;
+}
+#logo{
+  border-radius: 50%;
+  
+  width: 70px;
+  height: 70px;
+  border: 4px solid rgb(73, 73, 73);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(214, 214, 214);
+  background: rgb(70, 124, 53);
+  box-shadow: 2px 4px 8px rgb(56, 219, 105);
+  font-size: 30px;
+}
+.container .header {
+  text-align: center;
+  font-size: 32px;
+  color: #F29191;
+  transition: color 0.4s ease-in-out;
+  cursor: pointer;
+  margin-top: -50px;
+
+}
+footer {
+  background-color: azure;
+  padding: 10px 0;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  color: hotpink;
+}
+
+footer p {
+  font-size: 20px;
+}
+
+footer a {
+  color: navy;
+  text-decoration: none;
+}
+
