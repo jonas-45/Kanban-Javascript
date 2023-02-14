@@ -116,7 +116,17 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_main_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/main.css */ \"./src/styles/main.css\");\n/* harmony import */ var _images_like_image_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./images/like-image.png */ \"./src/images/like-image.png\");\n/* harmony import */ var _modules_getMeals__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/getMeals */ \"./src/modules/getMeals.js\");\n\n\n\n\nconst displayMeals = async () => {\n  const displayContainer = document.querySelector('.display-meals');\n\n  const getAllMeals = await (0,_modules_getMeals__WEBPACK_IMPORTED_MODULE_2__[\"default\"])();\n  let mealsHtml = '';\n  getAllMeals.forEach((meal) => {\n    mealsHtml += `<div class=\"card\">\n    <img class=\"meal-image\" src=\"${meal.strMealThumb}/preview\" alt=\"meal image\">\n    <div class=\"meal-data\">\n      <label>${meal.strMeal}</label>\n      <img class=\"like-image\" src=\"${_images_like_image_png__WEBPACK_IMPORTED_MODULE_1__}\" alt=\"like meal button\">\n    </div>\n    <p class=\"likes-text\">5 likes</p>\n    <button type=\"button\" class=\"comment-button\">Comments</button>\n  </div>`;\n  });\n\n  displayContainer.innerHTML = mealsHtml;\n};\n\ndisplayMeals();\n\n\n//# sourceURL=webpack://kanban-javascript/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_main_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/main.css */ \"./src/styles/main.css\");\n/* harmony import */ var _images_like_image_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./images/like-image.png */ \"./src/images/like-image.png\");\n/* harmony import */ var _modules_apiGets__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/apiGets */ \"./src/modules/apiGets.js\");\n\r\n\r\n\r\n\r\nconst displayMeals = async () => {\r\n  const displayContainer = document.querySelector('.display-meals');\r\n\r\n  const getAllMeals = await (0,_modules_apiGets__WEBPACK_IMPORTED_MODULE_2__.getMeals)();\r\n  let mealsHtml = '';\r\n  getAllMeals.forEach((meal) => {\r\n    mealsHtml += `<div class=\"card\">\r\n    <img class=\"meal-image\" src=\"${meal.strMealThumb}/preview\" alt=\"meal image\">\r\n    <div class=\"meal-data\">\r\n      <label>${meal.strMeal}</label>\r\n      <img class=\"like-image\" src=\"${_images_like_image_png__WEBPACK_IMPORTED_MODULE_1__}\" alt=\"like meal button\">\r\n    </div>\r\n    <p class=\"likes-text\" id=\"${meal.idMeal}\">loading...</p>\r\n    <button type=\"button\" id=\"${meal.idMeal} class=\"comment-button\">Comments</button>\r\n  </div>`;\r\n  });\r\n\r\n  displayContainer.innerHTML = mealsHtml;\r\n  const likesArray = await (0,_modules_apiGets__WEBPACK_IMPORTED_MODULE_2__.getLikes)();\r\n  console.log('show me: ', likesArray);\r\n  (0,_modules_apiGets__WEBPACK_IMPORTED_MODULE_2__.displayLikes)(likesArray);\r\n};\r\n\r\ndisplayMeals();\r\n\n\n//# sourceURL=webpack://kanban-javascript/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/modules/apiGets.js":
+/*!********************************!*\
+  !*** ./src/modules/apiGets.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"displayLikes\": () => (/* binding */ displayLikes),\n/* harmony export */   \"getLikes\": () => (/* binding */ getLikes),\n/* harmony export */   \"getMeals\": () => (/* binding */ getMeals)\n/* harmony export */ });\n/* harmony import */ var _consts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./consts */ \"./src/modules/consts.js\");\n\r\n\r\nconst getMeals = async () => {\r\n  const mealsArr = await fetch(_consts__WEBPACK_IMPORTED_MODULE_0__.API_URL)\r\n    .then((resp) => resp.json())\r\n    .catch((error) => error);\r\n\r\n  return mealsArr.meals;\r\n};\r\n\r\nconst getLikes = async () => {\r\n  const likes = await fetch(_consts__WEBPACK_IMPORTED_MODULE_0__.LIKES_URL)\r\n    .then(res => res.json)\r\n    .catch(err => console.log(err));\r\n\r\n    return likes;\r\n}\r\n\r\nconst getItemLikes = (likesArr, itemId) => {\r\n  console.log('likes array',likesArr);\r\n  const likesObj = likesArr.find(itemObj => itemObj.item_id === itemId);\r\n  return likesObj === undefined? 0 : likesObj.item_id;\r\n}\r\n\r\nconst displayLikes = (likesArr) => {\r\n  const likesTexts = document.querySelectorAll('.likes-text');\r\n  Array.from(likesTexts).forEach(likesnode => {\r\n    likesnode.textContent = getItemLikes(likesArr,likesnode.getAttribute('id')) + 'Likes';\r\n  });\r\n}\r\n\r\n\n\n//# sourceURL=webpack://kanban-javascript/./src/modules/apiGets.js?");
 
 /***/ }),
 
@@ -126,17 +136,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sty
   \*******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst API_URL = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood';\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (API_URL);\n\n//# sourceURL=webpack://kanban-javascript/./src/modules/consts.js?");
-
-/***/ }),
-
-/***/ "./src/modules/getMeals.js":
-/*!*********************************!*\
-  !*** ./src/modules/getMeals.js ***!
-  \*********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _consts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./consts */ \"./src/modules/consts.js\");\n\n\nconst getMeals = async () => {\n  const mealsArr = await fetch(_consts__WEBPACK_IMPORTED_MODULE_0__[\"default\"])\n    .then((resp) => resp.json())\n    .catch((error) => error);\n\n  return mealsArr.meals;\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getMeals);\n\n//# sourceURL=webpack://kanban-javascript/./src/modules/getMeals.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"API_URL\": () => (/* binding */ API_URL),\n/* harmony export */   \"LIKES_URL\": () => (/* binding */ LIKES_URL)\n/* harmony export */ });\nconst API_URL = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood';\r\nconst LIKES_URL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/vehS1XVjnLmMzjCWvntO/likes';\r\n\n\n//# sourceURL=webpack://kanban-javascript/./src/modules/consts.js?");
 
 /***/ }),
 
