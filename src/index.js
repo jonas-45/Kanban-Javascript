@@ -1,6 +1,6 @@
 import './styles/main.css';
 import likeImage from './images/like-image.png';
-import getMeals from './modules/getMeals';
+import getMeals from './modules/apiGets';
 
 const displayMeals = async () => {
   const displayContainer = document.querySelector('.display-meals');
