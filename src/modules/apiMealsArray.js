@@ -1,2 +1,2 @@
-let mealsArray = [];
+const mealsArray = [];
 export default mealsArray;

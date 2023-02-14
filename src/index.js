@@ -1,15 +1,13 @@
 import './styles/main.css';
-import likeImage from './images/like-image.png'
+import likeImage from './images/like-image.png';
 import getMeals from './modules/getMeals';
 
 const displayMeals = async () => {
-  
-  let displayContainer = document.querySelector('.display-meals');
-  //displayContainer.innerHTML = "";
+  const displayContainer = document.querySelector('.display-meals');
 
   const getAllMeals = await getMeals();
-  let mealsHtml = "";
-  getAllMeals.forEach(meal => {
+  let mealsHtml = '';
+  getAllMeals.forEach((meal) => {
     mealsHtml += `<div class="card">
     <img class="meal-image" src="${meal.strMealThumb}/preview" alt="meal image">
     <div class="meal-data">
@@ -22,6 +20,6 @@ const displayMeals = async () => {
   });
 
   displayContainer.innerHTML = mealsHtml;
-}
+};
 
 displayMeals();

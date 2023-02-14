@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
 
-body{
+body {
   background-color: darksalmon;
   margin: 0;
 }
 
-header{
+header {
   background-color: azure;
   height: 90px;
 }
@@ -14,12 +14,12 @@ header{
   width: 96%;
   height: 100%;
   margin: 0 auto;
-  padding: px 0;
+  padding: 0;
   margin-top: 2px;
 }
-#logo{
+
+#logo {
   border-radius: 50%;
-  
   width: 70px;
   height: 70px;
   border: 4px solid rgb(73, 73, 73);
@@ -31,24 +31,24 @@ header{
   box-shadow: 2px 4px 8px rgb(56, 219, 105);
   font-size: 30px;
 }
+
 .container .header {
   text-align: center;
   font-size: 32px;
-  color: #F29191;
+  color: #f29191;
   transition: color 0.4s ease-in-out;
   cursor: pointer;
   margin-top: -50px;
-
 }
 
 /* styles for the meals display section */
 #meals {
-  padding: 50px;
+  padding: 150px;
 }
 
 .display-meals {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
   gap: 3rem;
 }
 
@@ -92,12 +92,6 @@ header{
   cursor: pointer;
 }
 
-
-
-
-
-
-
 footer {
   background-color: azure;
   padding: 10px 0;
@@ -116,4 +110,3 @@ footer a {
   color: navy;
   text-decoration: none;
 }
-
