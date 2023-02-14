@@ -1,4 +1,4 @@
-import API_URL from './consts';
+import {API_URL, LIKES_URL} from './consts';
 
 const getMeals = async () => {
   const mealsArr = await fetch(API_URL)
@@ -8,4 +8,11 @@ const getMeals = async () => {
   return mealsArr.meals;
 };
 
-export default getMeals;
+const getLikes = async () => {
+  const likes = await fetch(LIKES_URL)
+    .then(res => res.json);
+
+    return likes;
+}
+
+export {getMeals, getLikes};
