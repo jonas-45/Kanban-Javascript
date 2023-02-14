@@ -5,7 +5,7 @@ import getMeals from './modules/getMeals';
 const displayMeals = async () => {
   
   let displayContainer = document.querySelector('.display-meals');
-  displayContainer.innerHTML = "";
+  //displayContainer.innerHTML = "";
 
   const getAllMeals = await getMeals();
   let mealsHtml = "";
