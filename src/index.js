@@ -14,8 +14,8 @@ const displayMeals = async () => {
       <label>${meal.strMeal}</label>
       <img class="like-image" src="${likeImage}" alt="like meal button">
     </div>
-    <p class="likes-text">5 likes</p>
-    <button type="button" class="comment-button">Comments</button>
+    <p class="likes-text" id="${meal.idMeal}">5 likes</p>
+    <button type="button" id="${meal.idMeal} class="comment-button">Comments</button>
   </div>`;
   });
 
