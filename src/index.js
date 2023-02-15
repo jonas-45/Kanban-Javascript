@@ -1,8 +1,13 @@
 import './styles/main.css';
 import likeImage from './images/like-image.png';
-import {getMeals, getLikes, displayLikes, saveLike} from './modules/apiGets';
+import {getMeals, getLikes, displayLikes, saveLike} from './modules/api';
 
-const updateLikesOnPage = async(likesArray) => {
+const getAndDisplayLikes = async () => {
+  const likesArray = await getLikes();
+  displayLikes(likesArray);
+}
+
+const addClickListernersToLikeBtns = async() => {
   const likeImgBtns = document.querySelectorAll('.like-image');
   Array.from(likeImgBtns).forEach(imgBtn => {
     imgBtn.addEventListener('click', (e) => {
@@ -11,8 +16,8 @@ const updateLikesOnPage = async(likesArray) => {
       }
 
       if(saveLike(itemId)) {
-        console.log('saved successfully');
-        displayLikes(likesArray);
+        const likes = parseInt(e.target.parentNode.nextElementSibling.innerHTML[0]) + 1;
+        e.target.parentNode.nextElementSibling.innerHTML = likes + " Likes";
       }
       
     });
@@ -37,9 +42,8 @@ const displayMeals = async () => {
   });
 
   displayContainer.innerHTML = mealsHtml;
-  const likesArray = await getLikes();
-  displayLikes(likesArray);
-  updateLikesOnPage(likesArray);
+  getAndDisplayLikes();
+  addClickListernersToLikeBtns();
 };
 
 displayMeals();

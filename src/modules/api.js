@@ -23,6 +23,7 @@ const getItemLikes = (likesArr, itemId) => {
 
 const displayLikes = (likesArr) => {
   console.log('display likes is called');
+  console.log(likesArr);
   const likesTexts = document.querySelectorAll('.likes-text');
   Array.from(likesTexts).forEach(likesnode => {
     likesnode.textContent = getItemLikes(likesArr,likesnode.getAttribute('id')) + ' Likes';
