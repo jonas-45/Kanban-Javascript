@@ -1,3 +1,12 @@
+
+const getIngredients = (meal) => {
+    let content = '';
+    for (let x = 1; x <= 10; x += 1) {
+      content += `<span>${meal[`strIngredient${x}`]}</span>`;
+    }
+    return content;
+  }
+
 const comment = (meal) => `<section class="com-section">
 <div class="comment-section">
   <div class="image">
@@ -9,13 +18,13 @@ const comment = (meal) => `<section class="com-section">
         <i class="fa fa-times" aria-hidden="true"></i>
     </div>
   </div>
-  <div class="food-name">
+  <div class="namefood">
     <h2>${meal.strMeal}</h2>
   </div>
   <div class="food-recipe">
     <h3>Ingredients</h3>
     <div class="ingredients">
-     ${this.getIngredients(meal)}
+     
     </div>
   </div>
   <div class="description">
@@ -24,15 +33,15 @@ const comment = (meal) => `<section class="com-section">
   <div class="comments">
     <h3>Comments<span>5</span></h3>
     <ul>
-      <li>Felix</li>
-      <li>Felix lancelot</li>
-      <li>Felix</li>
+     <li> Caren siya </li>
+     <li> Caren siya </li>
+     <li> Caren siya </li>
     </ul>
   </div>
   <form class="form" id="form">
-    <div class="add-comment">Add a comment</div>
+    <div class="addcomment">Add a comment</div>
     <input type="text" placeholder="Your name " />
-    <textarea placeholder="Your insights" rows="5" cols="20"></textarea>
+    <textarea placeholder="Your Views..." rows="5" cols="20"></textarea>
     <button type="submit" class="btn">Comments</button>
   </form>
 </div>

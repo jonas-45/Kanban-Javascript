@@ -1,27 +1,22 @@
 import './styles/main.css';
 import likeImage from './images/like-image.png';
 import {
-  getMeals, getLikes, displayLikes, saveLike,
+  getMeals, getLikes, displayLikes, saveLike
 } from './modules/api';
-
+import comment from './modules/htmlTemplates';
 
 
 const popupPage = async () => {
   const commentBtns = document.querySelectorAll(".comment-button");
   Array.from(commentBtns).forEach(async (btn) => {
-    btn.addEventListener("click", () =>{
+    btn.addEventListener("click", (e) =>{
       const popupContainer = document.getElementById("pop-up");
-      popupContainer.style.display = 'block';
-      alert("Hello")
+      const details = document.getElementById("display-details");
+      displayMealDetails(details, e.target.getAttribute("data-id"));
+      popupContainer.style.display = 'flex';
+      popupContainer.style.position = "fixed";
+      // console.log(displayMealDetails)
     });
-    
-    // const mealID = btn.getAttribute('data-id');
-    // await meal.getMealById(mealID).then((meal) =>{
-    //   popupContainer.innerHTML = comment(meal.meals[0]);
-    // });
-    // document.querySelector(".close-Button").onclick = () => {
-    //   popupContainer.innerHTML = ''
-    // }
   })
 }
 
@@ -67,8 +62,18 @@ const displayMeals = async () => {
   displayContainer.innerHTML = mealsHtml;
   getAndDisplayLikes();
   addClickListernersToLikeBtns();
+  popupPage();
 };
-popupPage()
+
+
+const displayMealDetails = async(container, mealId) => {
+  const allMeals = await getMeals();
+  const meal = await allMeals.find((meal) => meal.idMeal === mealId);
+  console.log('clicked meal:', meal);
+  console.log(allMeals)
+  container.innerHTML = comment(meal);
+}
+
 displayMeals();
 
 

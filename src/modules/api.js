@@ -8,6 +8,11 @@ const getMeals = async () => {
   return mealsArr.meals;
 };
 
+const mealDetailsArr = async(detailsUrl,mealId) => {
+  const mealDetails = await fetch(detailsUrl + mealId);
+  return mealDetails.json().meals;
+}
+
 const getLikes = async () => {
   const likes = await fetch(LIKES_URL)
     .then((res) => res.json())
@@ -42,5 +47,5 @@ const saveLike = async (itemId) => {
 };
 
 export {
-  getMeals, getLikes, displayLikes, saveLike,
+  getMeals, getLikes, displayLikes, saveLike
 };

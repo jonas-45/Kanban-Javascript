@@ -40,6 +40,30 @@ header {
   cursor: pointer;
   margin-top: -50px;
 }
+.nav-menu {
+  display: flex;
+  gap: 30px;
+  padding: 2px;
+  list-style: none;
+  margin-top: -30px;
+  
+}
+
+.navlink {
+  margin-right: 30px;
+  color: #e60b0b;
+  font-size: 25px;
+  font-weight: 800;
+  text-decoration: none;
+}
+#Seafood{
+  text-decoration: none;
+  color: #e60b0b;
+  font-size: 25px;
+  font-weight: 800;
+}
+
+
 
 /* styles for the meals display section */
 #meals {
@@ -93,11 +117,141 @@ header {
   cursor: pointer;
 }
 
+
+#pop-up{
+  display: none;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border: 1px solid blueviolet;
+  background-color: aqua;
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+ 
+}
+#display-details{
+  background-color: white;
+  justify-content: center;
+  margin: 2rem;
+  height: 500px;
+  width: 700px;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1rem solid rgba(197, 6, 6, 0.1);
+  padding: 2rem;
+  box-shadow: 0 0.5rem 1rem rgba(218, 3, 3, 0.1);
+  border-radius: 0.5rem;
+}
+
+
+.image {
+  display: flex;
+  justify-content: center;
+  /* gap: 100px; */
+}
+
+.image img {
+  width: 100%;
+  height: 300px;
+  /* margin-left: 150px; */
+  top:0;
+}
+
+.image i {
+  font-size: 30px;
+  cursor: pointer;
+}
+.namefood {
+  font-size: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 10px;
+  height: 200px;
+}
+
+.addcomment {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.form textarea {
+  margin-top: 10px;
+}
+
+.btn {
+  margin-top: 5px;
+  margin-right: 80px;
+  background-color: #ff0022;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 2px 4px 5px rgb(158, 13, 103);
+}
+
+
+.comments h3 {
+  color: #fff;
+  background-color: #c70a23;
+  padding: 9px 20px;
+  font-size: 20px;
+  font-weight: 700;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border: 1px solid black;
+}
+
+.comments h3 span {
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  background-color: #f00f2d;
+  color: #fff;
+  display: inline-block;
+  border-radius: 50%;
+  margin-left: 1em;
+  cursor: pointer;
+  border: 1px solid black;
+}
+
+.comments ul {
+  position: relative;
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.comments ul li {
+  list-style: none;
+  padding: 30px;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 5px 25px rgba(20, 1, 1, 0.1);
+  transition: transform 0.5s;
+}
+
+.comments ul li:hover {
+  transform: scale(0.9);
+  z-index: 100;
+  background-color: #ee0c57;
+  box-shadow: 0 5px 25px rgba(8, 0, 0, 0.2);
+}
+
+
 footer {
   background-color: azure;
   padding: 10px 0;
   text-align: center;
-  position: fixed;
   width: 100%;
   bottom: 0;
   color: hotpink;
@@ -110,14 +264,4 @@ footer p {
 footer a {
   color: navy;
   text-decoration: none;
-}
-
-#pop-up{
-  display: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  border: 1px solid blueviolet;
-  background-color: aqua;
 }
