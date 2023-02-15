@@ -11,8 +11,8 @@ const popupPage = async () => {
   Array.from(commentBtns).forEach(async (btn) => {
     btn.addEventListener("click", () =>{
       const popupContainer = document.getElementById("pop-up");
-      // popupContainer.style.display = 'block';
-      // alert("Hello")
+      popupContainer.style.display = 'block';
+      alert("Hello")
     });
     
     // const mealID = btn.getAttribute('data-id');
