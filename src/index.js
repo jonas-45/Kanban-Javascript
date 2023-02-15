@@ -18,7 +18,7 @@ const addClickListernersToLikeBtns = async () => {
       };
 
       if (saveLike(itemId)) {
-        const likes = parseInt(e.target.parentNode.nextElementSibling.innerHTML[0], 10) + 1;
+        const likes = parseInt(e.target.parentNode.nextElementSibling.innerText, 10) + 1;
         e.target.parentNode.nextElementSibling.innerHTML = `${likes} Likes`;
       }
     });
