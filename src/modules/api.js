@@ -1,4 +1,4 @@
-import {API_URL, LIKES_URL} from './consts';
+import { API_URL, LIKES_URL } from './consts';
 
 const getMeals = async () => {
   const mealsArr = await fetch(API_URL)
@@ -10,37 +10,37 @@ const getMeals = async () => {
 
 const getLikes = async () => {
   const likes = await fetch(LIKES_URL)
-    .then(res => res.json())
-    .catch(err => console.log(err));
+    .then((res) => res.json())
+    .catch((err) => err);
 
-    return likes;
-}
+  return likes;
+};
 
 const getItemLikes = (likesArr, itemId) => {
-  const likesObj = likesArr.find(itemObj => itemObj.item_id === itemId);
-  return likesObj === undefined? 0 : likesObj.likes;
-}
+  const likesObj = likesArr.find((itemObj) => itemObj.item_id === itemId);
+  return likesObj === undefined ? 0 : likesObj.likes;
+};
 
 const displayLikes = (likesArr) => {
-  console.log('display likes is called');
-  console.log(likesArr);
   const likesTexts = document.querySelectorAll('.likes-text');
-  Array.from(likesTexts).forEach(likesnode => {
-    likesnode.textContent = getItemLikes(likesArr,likesnode.getAttribute('id')) + ' Likes';
+  Array.from(likesTexts).forEach((likesnode) => {
+    likesnode.textContent = `${getItemLikes(likesArr, likesnode.getAttribute('id'))} Likes`;
   });
-}
+};
 
-const saveLike = async(itemId) => {
+const saveLike = async (itemId) => {
   const sendLikeStatus = await fetch(LIKES_URL, {
     method: 'POST',
     headers: {
-      "Content-Type": "application/json"
+      'Content-Type': 'application/json',
     },
-    body: JSON.stringify(itemId)
+    body: JSON.stringify(itemId),
   }).then(() => true)
     .catch(() => false);
 
   return sendLikeStatus;
-}
+};
 
-export {getMeals, getLikes, displayLikes, saveLike};
+export {
+  getMeals, getLikes, displayLikes, saveLike,
+};

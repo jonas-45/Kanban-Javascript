@@ -1,28 +1,29 @@
 import './styles/main.css';
 import likeImage from './images/like-image.png';
-import {getMeals, getLikes, displayLikes, saveLike} from './modules/api';
+import {
+  getMeals, getLikes, displayLikes, saveLike,
+} from './modules/api';
 
 const getAndDisplayLikes = async () => {
   const likesArray = await getLikes();
   displayLikes(likesArray);
-}
+};
 
-const addClickListernersToLikeBtns = async() => {
+const addClickListernersToLikeBtns = async () => {
   const likeImgBtns = document.querySelectorAll('.like-image');
-  Array.from(likeImgBtns).forEach(imgBtn => {
+  Array.from(likeImgBtns).forEach((imgBtn) => {
     imgBtn.addEventListener('click', (e) => {
       const itemId = {
-        item_id: e.target.getAttribute('data-index')
-      }
+        item_id: e.target.getAttribute('data-index'),
+      };
 
-      if(saveLike(itemId)) {
-        const likes = parseInt(e.target.parentNode.nextElementSibling.innerHTML[0]) + 1;
-        e.target.parentNode.nextElementSibling.innerHTML = likes + " Likes";
+      if (saveLike(itemId)) {
+        const likes = parseInt(e.target.parentNode.nextElementSibling.innerHTML[0], 10) + 1;
+        e.target.parentNode.nextElementSibling.innerHTML = `${likes} Likes`;
       }
-      
     });
   });
-}
+};
 
 const displayMeals = async () => {
   const displayContainer = document.querySelector('.display-meals');
