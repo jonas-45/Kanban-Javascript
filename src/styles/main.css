@@ -111,3 +111,13 @@ footer a {
   color: navy;
   text-decoration: none;
 }
+
+#pop-up{
+  display: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border: 1px solid blueviolet;
+  background-color: aqua;
+}

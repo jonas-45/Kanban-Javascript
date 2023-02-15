@@ -4,6 +4,28 @@ import {
   getMeals, getLikes, displayLikes, saveLike,
 } from './modules/api';
 
+
+
+const popupPage = async () => {
+  const commentBtns = document.querySelectorAll(".comment-button");
+  Array.from(commentBtns).forEach(async (btn) => {
+    btn.addEventListener("click", () =>{
+      const popupContainer = document.getElementById("pop-up");
+      // popupContainer.style.display = 'block';
+      // alert("Hello")
+    });
+    
+    // const mealID = btn.getAttribute('data-id');
+    // await meal.getMealById(mealID).then((meal) =>{
+    //   popupContainer.innerHTML = comment(meal.meals[0]);
+    // });
+    // document.querySelector(".close-Button").onclick = () => {
+    //   popupContainer.innerHTML = ''
+    // }
+  })
+}
+
+
 const getAndDisplayLikes = async () => {
   const likesArray = await getLikes();
   displayLikes(likesArray);
@@ -38,7 +60,7 @@ const displayMeals = async () => {
       <img class="like-image" data-index="${meal.idMeal}" src="${likeImage}" alt="like meal button">
     </div>
     <p class="likes-text" id="${meal.idMeal}">loading...</p>
-    <button type="button" id="${meal.idMeal} class="comment-button">Comments</button>
+    <button type="button" data-id="${meal.idMeal}" class="comment-button">Comments</button>
   </div>`;
   });
 
@@ -46,5 +68,7 @@ const displayMeals = async () => {
   getAndDisplayLikes();
   addClickListernersToLikeBtns();
 };
-
+popupPage()
 displayMeals();
+
+
