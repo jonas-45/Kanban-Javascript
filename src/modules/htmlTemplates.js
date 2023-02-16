@@ -28,7 +28,10 @@ alt="${image.strMeal}"/>
   const cleanArr = newArr.filter((str) => str !== '' && str !== null);
   cleanArr.forEach((ingridient) => {
     results += `
-<li>${ingridient}</li>
+<div class="list-container">
+<ul class="ingridient-list">
+<li class="list-items">${ingridient}</li></ul>
+</div>
 `;
   });
   meal.forEach((recipe) => {
