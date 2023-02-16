@@ -1,9 +1,10 @@
 import './styles/main.css';
 import likeImage from './images/like-image.png';
 import {
-  getMeals, getLikes, displayLikes, saveLike
+  getMeals, getLikes, displayLikes, saveLike, getMealIngridients
 } from './modules/api';
-import comment from './modules/htmlTemplates';
+import comment  from './modules/htmlTemplates';
+import { getmeal } from './modules/consts';
 
 
 const popupPage = async () => {
@@ -13,9 +14,11 @@ const popupPage = async () => {
       const popupContainer = document.getElementById("pop-up");
       const details = document.getElementById("display-details");
       displayMealDetails(details, e.target.getAttribute("data-id"));
+      displayMealIngridients(details, e.target.getAttribute('data-id'))
       popupContainer.style.display = 'flex';
       popupContainer.style.position = "fixed";
       // console.log(displayMealDetails)
+
     });
   })
 }
@@ -66,14 +69,27 @@ const displayMeals = async () => {
 };
 
 
+//pop up
 const displayMealDetails = async(container, mealId) => {
-  const allMeals = await getMeals();
-  const meal = await allMeals.find((meal) => meal.idMeal === mealId);
-  console.log('clicked meal:', meal);
-  console.log(allMeals)
-  container.innerHTML = comment(meal);
+  const allMeals = await getMealIngridients(mealId);
+  // const meal = await allMeals.find((meal) => meal.idMeal === mealId);
+  console.log('clicked meal:', allMeals);
+  // console.log(allMeals)
+  container.innerHTML = comment(allMeals);
 }
 
+const displayMealIngridients = async(container, mealId) => {
+  const allMeals = await getMealIngridients(mealId);
+  // console.log(allMeals[0], 'hello', mealId)
+  container.innerHTML = comment(allMeals)
+}
 displayMeals();
+// displayMealIngridients();
 
 
+// const details = async () => {
+//   const data = await fetch(getmeal)
+//   .then((response) => response.json())
+//   .then((data) => console.log(data))
+// }
+// details()

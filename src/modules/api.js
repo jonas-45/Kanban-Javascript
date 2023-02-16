@@ -1,4 +1,4 @@
-import { API_URL, LIKES_URL } from './consts';
+import { API_URL, LIKES_URL, getmeal } from './consts';
 
 const getMeals = async () => {
   const mealsArr = await fetch(API_URL)
@@ -8,9 +8,21 @@ const getMeals = async () => {
   return mealsArr.meals;
 };
 
-const mealDetailsArr = async(detailsUrl,mealId) => {
-  const mealDetails = await fetch(detailsUrl + mealId);
-  return mealDetails.json().meals;
+const getMealIngridients = async (id) => {
+  const ingredientsArr = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
+  .then((resp) => resp.json() )
+  .catch((error) => error );
+  return ingredientsArr.meals;
+}
+
+// const mealDetailsArr = async(mealId) => {
+//   const mealDetails = await fetch( BY_ID  + mealId);
+//   return mealDetails.json().meals;
+// }
+
+const getDetails = async(detailsId) =>{
+  const mealsDetails = await fetch(getmeal + detailsId);
+  return mealsDetails.json().meals
 }
 
 const getLikes = async () => {
@@ -47,5 +59,9 @@ const saveLike = async (itemId) => {
 };
 
 export {
-  getMeals, getLikes, displayLikes, saveLike
+  getMeals, getLikes, displayLikes, saveLike,getDetails, 
+  getMealIngridients
 };
+
+
+
