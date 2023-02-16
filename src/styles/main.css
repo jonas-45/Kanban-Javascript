@@ -160,7 +160,7 @@ header {
 .image img {
   width: 50%;
   height: 300px;
-  margin-top: 1000px;
+  margin-top: 600px;
   top: 0;
 }
 
@@ -176,8 +176,24 @@ header {
   flex-direction: column;
 }
 
-li {
+.list-items {
+  padding: 5px;
+  border-radius: 5%;
+  margin: 5px;
+  background-color: rgb(189, 181, 181);
   list-style: none;
+  cursor: pointer;
+}
+
+.list-items:hover {
+  background-color: #a12e54;
+  color: white;
+}
+
+.ingridient-list {
+  display: flex;
+  flex-flow: row wrap;
+  column-gap: 10%;
 }
 
 .form {
@@ -199,14 +215,17 @@ li {
 }
 
 .btn {
-  margin-top: 5px;
-  margin-right: 80px;
+  margin-top: 10px;
+  margin-right: 20%;
+  margin-left: auto;
   background-color: #f02;
   color: #fff;
   border: none;
   border-radius: 5px;
   padding: 10px;
+  font-size: 15px;
   box-shadow: 2px 4px 5px rgb(158, 13, 103);
+  cursor: pointer;
 }
 
 .comments h3 {
@@ -233,6 +252,10 @@ li {
   border: 1px solid black;
 }
 
+.comments-list {
+  padding-left: 0;
+}
+
 .comments ul {
   position: relative;
   background-color: #fff;
@@ -242,7 +265,7 @@ li {
 
 .comments ul li {
   list-style: none;
-  padding: 30px;
+  padding: 20px 5px 20px 10px;
   width: 100%;
   background-color: #fff;
   box-shadow: 0 5px 25px rgba(20, 1, 1, 0.1);
@@ -252,8 +275,16 @@ li {
 .comments ul li:hover {
   transform: scale(0.9);
   z-index: 100;
+  color: white;
+  font-size: 20px;
+  font-weight: 400;
   background-color: #ee0c57;
   box-shadow: 0 5px 25px rgba(8, 0, 0, 0.2);
+}
+
+.input {
+  padding: 7px;
+  width: 60%;
 }
 
 footer {
@@ -272,4 +303,8 @@ footer p {
 footer a {
   color: navy;
   text-decoration: none;
+}
+
+.hide {
+  display: none;
 }

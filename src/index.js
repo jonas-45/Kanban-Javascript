@@ -1,26 +1,84 @@
 import './styles/main.css';
 import likeImage from './images/like-image.png';
 import {
-  getMeals, getLikes, displayLikes, saveLike, getMealIngridients,
+  getMeals, getLikes, displayLikes, saveLike, getMealIngridients, sendComment, getComments,
 } from './modules/api.js';
 import comment from './modules/htmlTemplates.js';
-import totalMeals from './modules/mealsCounter';
+import totalMeals from './modules/mealsCounter.js';
 
 const getAndDisplayLikes = async () => {
   const likesArray = await getLikes();
   displayLikes(likesArray);
 };
 
-// pop up
-const displayMealDetails = async (container, mealId) => {
-  const allMeals = await getMealIngridients(mealId);
+const displayComments = async (mealId) => {
+  const commentsArr = await getComments(mealId);
+  // document.querySelector('.comments-count').innerText = getTotalCount(commentsArr);
+  const ul = document.querySelector('.comments-list');
+  const noComments = document.querySelector('.no-comments');
+  if (commentsArr.length > 0) {
+    noComments.classList.add('hide');
+    ul.innerHTML = '';
+    commentsArr.forEach((comment) => {
+      if (Object.keys(comment.comment).length !== 0) {
+        const li = document.createElement('li');
+        li.innerText = `${comment.creation_date} ${comment.username}: ${comment.comment}`;
+        ul.appendChild(li);
+      }
+    });
 
-  container.innerHTML = comment(allMeals);
+    return;
+  }
+
+  noComments.innerText = 'No comments available';
 };
 
-const displayMealIngridients = async (container, mealId) => {
+const addCommentButtonListener = async (mealId) => {
+  const form = document.getElementById('form');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const comment = {
+      item_id: mealId,
+      username: document.getElementById('username').value,
+      comment: document.getElementById('comment').value,
+    };
+    const postComment = await sendComment(comment);
+    if (postComment) {
+      displayComments(mealId);
+    }
+
+    form.reset();
+  });
+};
+
+// pop up
+const displayMealIngridients = async (ul, meal) => {
+  // const allMeals = await getMealIngridients(mealId);
+  // container.innerHTML = comment(allMeals);
+  const ingredients = [];
+  Object.keys((meal[0])).forEach((item) => {
+    if (item.startsWith('strIng')) {
+      ingredients.push(meal[0][item]);
+    }
+  });
+  const cleanArr = ingredients.filter((str) => str !== '' && str !== null);
+  cleanArr.forEach((ingridient) => {
+    const li = document.createElement('li');
+    li.classList.add('list-items');
+    li.innerHTML = ingridient;
+    ul.appendChild(li);
+  });
+};
+
+const displayMealDetails = async (container, mealId) => {
   const allMeals = await getMealIngridients(mealId);
+  const meal = await allMeals.find((meal) => meal.idMeal === mealId);
+  document.querySelector('body').style.overflow = 'hidden';
   container.innerHTML = comment(allMeals);
+  addCommentButtonListener(meal.idMeal);
+  displayComments(meal.idMeal);
+  const ul = document.querySelector('.ingridient-list');
+  displayMealIngridients(ul, allMeals);
 };
 
 const addClickListernersToLikeBtns = async () => {
@@ -42,14 +100,15 @@ const addClickListernersToLikeBtns = async () => {
 const popupPage = async () => {
   const commentBtns = document.querySelectorAll('.comment-button');
   Array.from(commentBtns).forEach(async (btn) => {
-    btn.addEventListener('click', (e) => {
+    btn.addEventListener('click', async (e) => {
       const popupContainer = document.getElementById('pop-up');
       const details = document.getElementById('display-details');
-      displayMealDetails(details, e.target.getAttribute('data-id'));
-      displayMealIngridients(details, e.target.getAttribute('data-id'));
+      await displayMealDetails(details, e.target.getAttribute('data-id'));
+      // await displayMealIngridients(details, e.target.getAttribute('data-id'));
       popupContainer.style.display = 'flex';
       popupContainer.style.position = 'fixed';
-      // console.log(displayMealDetails)
+
+      // removePopupListener();
     });
   });
 };

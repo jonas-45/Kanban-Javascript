@@ -18,22 +18,12 @@ alt="${image.strMeal}"/>
 </div>
 `;
   });
-
-  const newArr = [];
-  Object.keys((meal[0])).forEach((item) => {
-    if (item.startsWith('strIng')) {
-      newArr.push(meal[0][item]);
-    }
-  });
-  const cleanArr = newArr.filter((str) => str !== '' && str !== null);
-  cleanArr.forEach((ingridient) => {
     results += `
 <div class="list-container">
 <ul class="ingridient-list">
-<li class="list-items">${ingridient}</li></ul>
+</ul>
 </div>
 `;
-  });
   meal.forEach((recipe) => {
     results += `
 <div class="description">
@@ -41,17 +31,16 @@ alt="${image.strMeal}"/>
 <p>${recipe.strInstructions}</p>
 </div>
 <div class="comments">
-<h3>Comments<span>5</span></h3>
-<ul>
-<li> Caren siya </li>
-<li> Caren siya </li>
-<li> Caren siya </li>
+<h3>Comments<span class="comments-count">wait..</span></h3>
+<p class="no-comments">Loading comments...</p>
+<ul class="comments-list">
+
 </ul>
 </div>
 <form class="form" id="form">
 <div class="addcomment">Add a comment</div>
-<input type="text" placeholder="Your name " />
-<textarea placeholder="Your Views..." rows="5" cols="20"></textarea>
+<input type="text" class="input" id="username" placeholder="Your name" required/>
+<textarea class="input" id="comment" placeholder="Your Views..." rows="5" cols="20" required></textarea>
 <button type="submit" class="btn">Comments</button>
 </form>
 </div>
