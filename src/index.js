@@ -41,17 +41,19 @@ const addClickListernersToLikeBtns = async () => {
 const popupPage = async () => {
   const commentBtns = document.querySelectorAll('.comment-button');
   Array.from(commentBtns).forEach(async (btn) => {
-    btn.addEventListener('click', (e) => {
+    btn.addEventListener('click', async (e) => {
       const popupContainer = document.getElementById('pop-up');
       const details = document.getElementById('display-details');
-      displayMealDetails(details, e.target.getAttribute('data-id'));
-      displayMealIngridients(details, e.target.getAttribute('data-id'));
+      await displayMealDetails(details, e.target.getAttribute('data-id'));
+      await displayMealIngridients(details, e.target.getAttribute('data-id'));
       popupContainer.style.display = 'flex';
       popupContainer.style.position = 'fixed';
-      // console.log(displayMealDetails)
+
+      removePopupListener();
     });
   });
 };
+
 
 const displayMeals = async () => {
   const displayContainer = document.querySelector('.display-meals');

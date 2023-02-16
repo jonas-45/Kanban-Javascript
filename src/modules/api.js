@@ -1,4 +1,4 @@
-import { API_URL, LIKES_URL, getmeal } from './consts.js';
+import { API_URL, LIKES_URL, GETMEAL } from './consts.js';
 
 const getMeals = async () => {
   const mealsArr = await fetch(API_URL)
@@ -16,7 +16,7 @@ const getMealIngridients = async (id) => {
 };
 
 const getDetails = async (detailsId) => {
-  const mealsDetails = await fetch(getmeal + detailsId);
+  const mealsDetails = await fetch(GETMEAL + detailsId);
   return mealsDetails.json().meals;
 };
 
@@ -52,6 +52,27 @@ const saveLike = async (itemId) => {
 
   return sendLikeStatus;
 };
+
+
+const sendComment = async (commentObj) => {
+  const commentStatus = await fetch(POST_COMMENTS_URL, {
+    method: 'POST',
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(commentObj)
+  }).then(() => true)
+    .catch(() => false);
+  return commentStatus;
+}
+
+const getComments = async (mealId) => {
+  const getUrl = GET_COMMENTS_URL + mealId;
+  console.log('Get url: ' + getUrl);
+  const comments = await fetch(GET_COMMENTS_URL + mealId)
+                  .then(resp => resp.json());
+  return comments;
+}
 
 export {
   getMeals, getLikes, displayLikes, saveLike, getDetails,
