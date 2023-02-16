@@ -4,6 +4,7 @@ import {
   getMeals, getLikes, displayLikes, saveLike, getMealIngridients,
 } from './modules/api.js';
 import comment from './modules/htmlTemplates.js';
+import totalMeals from './modules/mealsCounter';
 
 const getAndDisplayLikes = async () => {
   const likesArray = await getLikes();
@@ -75,5 +76,9 @@ const displayMeals = async () => {
   addClickListernersToLikeBtns();
   popupPage();
 };
+
+const displayMealsCounter = () => {
+  const counterNode = document.querySelector('.total-meals');
+}
 
 displayMeals();

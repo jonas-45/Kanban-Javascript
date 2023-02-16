@@ -74,6 +74,11 @@ header {
   padding: 150px;
 }
 
+.total-meals {
+  font-size: 20px;
+  columns: #888;
+}
+
 .display-meals {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
