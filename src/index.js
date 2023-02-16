@@ -4,6 +4,7 @@ import {
   getMeals, getLikes, displayLikes, saveLike, getMealIngridients,
 } from './modules/api.js';
 import comment from './modules/htmlTemplates.js';
+import totalMeals from './modules/mealsCounter';
 
 const getAndDisplayLikes = async () => {
   const likesArray = await getLikes();
@@ -53,6 +54,11 @@ const popupPage = async () => {
   });
 };
 
+const displayMealsCounter = async (mealsArr) => {
+  const mealsTotal = await totalMeals(mealsArr);
+  document.getElementById('Seafood').innerHTML = `Seafood: (${mealsTotal})`;
+};
+
 const displayMeals = async () => {
   const displayContainer = document.querySelector('.display-meals');
 
@@ -71,6 +77,7 @@ const displayMeals = async () => {
   });
 
   displayContainer.innerHTML = mealsHtml;
+  displayMealsCounter(getAllMeals);
   getAndDisplayLikes();
   addClickListernersToLikeBtns();
   popupPage();
