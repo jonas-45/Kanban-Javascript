@@ -1,12 +1,25 @@
 import './styles/main.css';
 import likeImage from './images/like-image.png';
 import {
-  getMeals, getLikes, displayLikes, saveLike,
-} from './modules/api';
+  getMeals, getLikes, displayLikes, saveLike, getMealIngridients,
+} from './modules/api.js';
+import comment from './modules/htmlTemplates.js';
 
 const getAndDisplayLikes = async () => {
   const likesArray = await getLikes();
   displayLikes(likesArray);
+};
+
+// pop up
+const displayMealDetails = async (container, mealId) => {
+  const allMeals = await getMealIngridients(mealId);
+
+  container.innerHTML = comment(allMeals);
+};
+
+const displayMealIngridients = async (container, mealId) => {
+  const allMeals = await getMealIngridients(mealId);
+  container.innerHTML = comment(allMeals);
 };
 
 const addClickListernersToLikeBtns = async () => {
@@ -25,6 +38,21 @@ const addClickListernersToLikeBtns = async () => {
   });
 };
 
+const popupPage = async () => {
+  const commentBtns = document.querySelectorAll('.comment-button');
+  Array.from(commentBtns).forEach(async (btn) => {
+    btn.addEventListener('click', (e) => {
+      const popupContainer = document.getElementById('pop-up');
+      const details = document.getElementById('display-details');
+      displayMealDetails(details, e.target.getAttribute('data-id'));
+      displayMealIngridients(details, e.target.getAttribute('data-id'));
+      popupContainer.style.display = 'flex';
+      popupContainer.style.position = 'fixed';
+      // console.log(displayMealDetails)
+    });
+  });
+};
+
 const displayMeals = async () => {
   const displayContainer = document.querySelector('.display-meals');
 
@@ -38,13 +66,14 @@ const displayMeals = async () => {
       <img class="like-image" data-index="${meal.idMeal}" src="${likeImage}" alt="like meal button">
     </div>
     <p class="likes-text" id="${meal.idMeal}">loading...</p>
-    <button type="button" id="${meal.idMeal} class="comment-button">Comments</button>
+    <button type="button" data-id="${meal.idMeal}" class="comment-button">Comments</button>
   </div>`;
   });
 
   displayContainer.innerHTML = mealsHtml;
   getAndDisplayLikes();
   addClickListernersToLikeBtns();
+  popupPage();
 };
 
 displayMeals();
