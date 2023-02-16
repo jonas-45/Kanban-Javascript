@@ -1,32 +1,25 @@
 import './styles/main.css';
 import likeImage from './images/like-image.png';
 import {
-  getMeals, getLikes, displayLikes, saveLike, getMealIngridients
-} from './modules/api';
-import comment  from './modules/htmlTemplates';
-import { getmeal } from './modules/consts';
-
-
-const popupPage = async () => {
-  const commentBtns = document.querySelectorAll(".comment-button");
-  Array.from(commentBtns).forEach(async (btn) => {
-    btn.addEventListener("click", (e) =>{
-      const popupContainer = document.getElementById("pop-up");
-      const details = document.getElementById("display-details");
-      displayMealDetails(details, e.target.getAttribute("data-id"));
-      displayMealIngridients(details, e.target.getAttribute('data-id'))
-      popupContainer.style.display = 'flex';
-      popupContainer.style.position = "fixed";
-      // console.log(displayMealDetails)
-
-    });
-  })
-}
-
+  getMeals, getLikes, displayLikes, saveLike, getMealIngridients,
+} from './modules/api.js';
+import comment from './modules/htmlTemplates.js';
 
 const getAndDisplayLikes = async () => {
   const likesArray = await getLikes();
   displayLikes(likesArray);
+};
+
+// pop up
+const displayMealDetails = async (container, mealId) => {
+  const allMeals = await getMealIngridients(mealId);
+
+  container.innerHTML = comment(allMeals);
+};
+
+const displayMealIngridients = async (container, mealId) => {
+  const allMeals = await getMealIngridients(mealId);
+  container.innerHTML = comment(allMeals);
 };
 
 const addClickListernersToLikeBtns = async () => {
@@ -41,6 +34,21 @@ const addClickListernersToLikeBtns = async () => {
         const likes = parseInt(e.target.parentNode.nextElementSibling.innerHTML[0], 10) + 1;
         e.target.parentNode.nextElementSibling.innerHTML = `${likes} Likes`;
       }
+    });
+  });
+};
+
+const popupPage = async () => {
+  const commentBtns = document.querySelectorAll('.comment-button');
+  Array.from(commentBtns).forEach(async (btn) => {
+    btn.addEventListener('click', (e) => {
+      const popupContainer = document.getElementById('pop-up');
+      const details = document.getElementById('display-details');
+      displayMealDetails(details, e.target.getAttribute('data-id'));
+      displayMealIngridients(details, e.target.getAttribute('data-id'));
+      popupContainer.style.display = 'flex';
+      popupContainer.style.position = 'fixed';
+      // console.log(displayMealDetails)
     });
   });
 };
@@ -68,28 +76,4 @@ const displayMeals = async () => {
   popupPage();
 };
 
-
-//pop up
-const displayMealDetails = async(container, mealId) => {
-  const allMeals = await getMealIngridients(mealId);
-  // const meal = await allMeals.find((meal) => meal.idMeal === mealId);
-  console.log('clicked meal:', allMeals);
-  // console.log(allMeals)
-  container.innerHTML = comment(allMeals);
-}
-
-const displayMealIngridients = async(container, mealId) => {
-  const allMeals = await getMealIngridients(mealId);
-  // console.log(allMeals[0], 'hello', mealId)
-  container.innerHTML = comment(allMeals)
-}
 displayMeals();
-// displayMealIngridients();
-
-
-// const details = async () => {
-//   const data = await fetch(getmeal)
-//   .then((response) => response.json())
-//   .then((data) => console.log(data))
-// }
-// details()
