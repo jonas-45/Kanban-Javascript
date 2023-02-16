@@ -183,13 +183,14 @@ header {
   background-color: rgb(189, 181, 181);
   list-style: none;
   cursor: pointer;
-
 }
-.list-items:hover{
+
+.list-items:hover {
   background-color: #a12e54;
   color: white;
 }
-.ingridient-list{
+
+.ingridient-list {
   display: flex;
   flex-flow: row wrap;
   column-gap: 10%;
@@ -217,7 +218,7 @@ header {
   margin-top: 10px;
   margin-right: 20%;
   margin-left: auto;
-  background-color: #ff0022;
+  background-color: #f02;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -226,7 +227,6 @@ header {
   box-shadow: 2px 4px 5px rgb(158, 13, 103);
   cursor: pointer;
 }
-
 
 .comments h3 {
   color: #fff;
@@ -251,6 +251,7 @@ header {
   cursor: pointer;
   border: 1px solid black;
 }
+
 .comments-list {
   padding-left: 0;
 }
@@ -280,6 +281,7 @@ header {
   background-color: #ee0c57;
   box-shadow: 0 5px 25px rgba(8, 0, 0, 0.2);
 }
+
 .input {
   padding: 7px;
   width: 60%;
@@ -303,6 +305,6 @@ footer a {
   text-decoration: none;
 }
 
-.hide{
-display: none;
+.hide {
+  display: none;
 }

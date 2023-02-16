@@ -6,5 +6,5 @@ const LIKES_URL = 'https://us-central1-involvement-api.cloudfunctions.net/capsto
 const POST_COMMENTS_URL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/vehS1XVjnLmMzjCWvntO/comments';
 const GET_COMMENTS_URL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/vehS1XVjnLmMzjCWvntO/comments?item_id=';
 export {
-  API_URL, LIKES_URL, BY_ID, GETMEAL,POST_COMMENTS_URL,GET_COMMENTS_URL
+  API_URL, LIKES_URL, BY_ID, GETMEAL, POST_COMMENTS_URL, GET_COMMENTS_URL,
 };
