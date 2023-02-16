@@ -62,6 +62,11 @@ header {
   text-decoration: none;
 }
 
+.navlink:hover {
+  color: #c7850a;
+  font-size: 27px;
+}
+
 #Seafood {
   text-decoration: none;
   color: #e60b0b;
@@ -71,13 +76,14 @@ header {
 
 /* styles for the meals display section */
 #meals {
-  padding: 150px;
+  padding: 50px 150px;
 }
 
 .total-meals {
   display: none;
   font-size: 20px;
-  columns: #888;
+  color: #444;
+  font-weight: bold;
 }
 
 .display-meals {
