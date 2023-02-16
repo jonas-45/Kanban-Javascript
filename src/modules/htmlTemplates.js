@@ -8,8 +8,8 @@ src="${image.strMealThumb}"
 alt="${image.strMeal}"/>
 </div>	
 <div class="namefood">
-<h2>${image.strCategory !== '' ? image.strCategory : 'No category'}</h2>
 <p>${image.strMeal}</p>
+<h2 class="title">${image.strCategory !== '' ? image.strCategory : 'No category'}</h2>
 </div>
 <div class="food-recipe">
 <h3>Ingredients</h3>
