@@ -54,6 +54,11 @@ const popupPage = async () => {
   });
 };
 
+const displayMealsCounter = async (mealsArr) => {
+  const mealsTotal = await totalMeals(mealsArr);
+  document.querySelector('.total-meals').innerHTML = `Total Meals: (${mealsTotal})`;
+};
+
 const displayMeals = async () => {
   const displayContainer = document.querySelector('.display-meals');
 
@@ -78,10 +83,5 @@ const displayMeals = async () => {
   addClickListernersToLikeBtns();
   popupPage();
 };
-
-const displayMealsCounter = async(mealsArr) => {
-  const mealsTotal = await totalMeals(mealsArr);
-  document.querySelector('.total-meals').innerHTML = `Total Meals: (${mealsTotal})`
-}
 
 displayMeals();
