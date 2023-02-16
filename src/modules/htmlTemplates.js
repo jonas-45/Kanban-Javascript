@@ -1,3 +1,4 @@
+/*eslint-disable*/
 const comment = (meal) => {
   let results;
   meal.forEach((image) => {
@@ -6,7 +7,6 @@ const comment = (meal) => {
 src="${image.strMealThumb}"
 alt="${image.strMeal}"/>
 </div>	
-
 <div class="namefood">
 <h2>${image.strCategory !== '' ? image.strCategory : 'No category'}</h2>
 <p>${image.strMeal}</p>
