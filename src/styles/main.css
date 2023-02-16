@@ -176,7 +176,7 @@ header {
   flex-direction: column;
 }
 
-li {
+.list-items {
   padding: 5px;
   border-radius: 5%;
   margin: 5px;
@@ -185,7 +185,7 @@ li {
   cursor: pointer;
 
 }
-li:hover{
+.list-items:hover{
   background-color: #a12e54;
   color: white;
 }
