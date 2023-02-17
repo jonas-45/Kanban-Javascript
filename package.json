@@ -41,7 +41,11 @@
     "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
+<<<<<<< HEAD
     "common.js": "^1.1.1",
+=======
+    "@babel/plugin-transform-modules-commonjs": "^7.20.11",
+>>>>>>> dev
     "html-loader": "^4.2.0"
   }
 }
