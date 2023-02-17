@@ -20,7 +20,10 @@
   },
   "homepage": "https://github.com/jonas-45/Kanban-Javascript#readme",
   "devDependencies": {
+    "@babel/core": "^7.20.12",
+    "@babel/preset-env": "^7.20.2",
     "babel-eslint": "^10.1.0",
+    "babel-jest": "^29.4.3",
     "css-loader": "^6.7.3",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
@@ -38,6 +41,7 @@
     "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
+    "common.js": "^1.1.1",
     "html-loader": "^4.2.0"
   }
 }

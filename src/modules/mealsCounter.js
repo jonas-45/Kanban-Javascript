@@ -1,3 +1,3 @@
-const totalMeals = (mealsArr) => mealsArr.length;
+const totalMeals = mealsArr => mealsArr.length;
 
 export default totalMeals;
