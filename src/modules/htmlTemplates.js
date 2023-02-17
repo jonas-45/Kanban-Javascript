@@ -1,8 +1,9 @@
+import close from '../images/close.jpg'
 /*eslint-disable*/
 const comment = (meal) => {
   let results;
   meal.forEach((image) => {
-    results = `<div class="comment-section">
+    results = `<img class="close-popup" src="${close}" alt="popup close button"/>
 <div class="image"><img
 src="${image.strMealThumb}"
 alt="${image.strMeal}"/>
@@ -43,7 +44,6 @@ alt="${image.strMeal}"/>
 <textarea class="input" id="comment" placeholder="Your Views..." rows="5" cols="20" required></textarea>
 <button type="submit" class="btn">Comments</button>
 </form>
-</div>
 `;
   });
 

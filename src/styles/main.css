@@ -126,7 +126,33 @@ header {
   cursor: pointer;
 }
 
-#pop-up {
+#pop-up{
+  display: none;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border: 1px solid blueviolet;
+  background-color: aqua;
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+ 
+}
+
+#display-details{
+  background-color: white;
+  top: 2%;
+  bottom: 2%;
+  left: 25%;
+  right: 25%;
+  overflow-y: auto;
+  padding: 10px 80px;
+  box-shadow: 0 0.5rem 1rem rgba(218, 3, 3, 0.1);
+  border-radius: 0.5rem;
+  position: absolute;
+}
+
+/* #pop-up {
   display: none;
   top: 0;
   bottom: 0;
@@ -150,18 +176,30 @@ header {
   padding: 2rem;
   box-shadow: 0 0.5rem 1rem rgba(218, 3, 3, 0.1);
   border-radius: 0.5rem;
-}
+} */
 
 .image {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  width: 100%;
+  flex-grow: 1;
+  height: 40%;
 }
 
 .image img {
-  width: 50%;
-  height: 300px;
-  margin-top: 600px;
-  top: 0;
+  width: 100%;
+  height: 100%;
+  margin: 20px;
+  flex-grow: 1;
+}
+
+.close-popup {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 20px;
+  top: 3%;
+  cursor: pointer;
 }
 
 .image i {
