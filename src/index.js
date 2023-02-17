@@ -97,6 +97,15 @@ const addClickListernersToLikeBtns = async () => {
   });
 };
 
+const removePopupListener = () => {
+  document.querySelector('.close-popup').addEventListener('click', () => {
+    const popup = document.getElementById('pop-up');
+    popup.style.position = 'static';
+    popup.style.display = 'none';
+    document.querySelector('body').style.overflow = 'auto';
+  });
+};
+
 const popupPage = async () => {
   const commentBtns = document.querySelectorAll('.comment-button');
   Array.from(commentBtns).forEach(async (btn) => {
@@ -108,7 +117,7 @@ const popupPage = async () => {
       popupContainer.style.display = 'flex';
       popupContainer.style.position = 'fixed';
 
-      // removePopupListener();
+      removePopupListener();
     });
   });
 };
