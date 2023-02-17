@@ -2,9 +2,9 @@ import './styles/main.css';
 import likeImage from './images/like-image.png';
 import {
   getMeals, getLikes, displayLikes, saveLike, getMealIngridients,
-  sendComment, getComments
+  sendComment, getComments,
 } from './modules/api.js';
-import getTotalComment from './modules/commentCountapi';
+import getTotalComment from './modules/commentCountapi.js';
 import comment from './modules/htmlTemplates.js';
 import totalMeals from './modules/mealsCounter.js';
 

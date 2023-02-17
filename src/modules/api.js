@@ -73,8 +73,7 @@ const getComments = async (mealId) => {
   return comments;
 };
 
-
 export {
   getMeals, getLikes, displayLikes, saveLike, getDetails,
-  getMealIngridients, sendComment, getComments
+  getMealIngridients, sendComment, getComments,
 };
