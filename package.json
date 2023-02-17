@@ -38,6 +38,7 @@
     "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.20.11",
     "html-loader": "^4.2.0"
   }
 }
