@@ -73,12 +73,9 @@ const getComments = async (mealId) => {
   return comments;
 };
 
-const getTotalComment = (itemsArr) => {
-  console.log('items array: ' + itemsArr.length);
-  return itemsArr.length === undefined ? 0 : itemsArr.length;
-}
+const getTotalComment = (itemsArr) => (itemsArr.length === undefined ? 0 : itemsArr.length);
 
 export {
   getMeals, getLikes, displayLikes, saveLike, getDetails,
-  getMealIngridients, sendComment, getComments,getTotalComment
+  getMealIngridients, sendComment, getComments, getTotalComment,
 };

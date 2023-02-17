@@ -1,7 +1,8 @@
 import './styles/main.css';
 import likeImage from './images/like-image.png';
 import {
-  getMeals, getLikes, displayLikes, saveLike, getMealIngridients, sendComment, getComments,getTotalComment
+  getMeals, getLikes, displayLikes, saveLike, getMealIngridients,
+  sendComment, getComments, getTotalComment,
 } from './modules/api.js';
 import comment from './modules/htmlTemplates.js';
 import totalMeals from './modules/mealsCounter.js';
@@ -32,8 +33,6 @@ const displayComments = async (mealId) => {
 
   noComments.innerText = 'No comments available';
 };
-
-
 
 const addCommentButtonListener = async (mealId) => {
   const form = document.getElementById('form');
@@ -79,7 +78,6 @@ const displayMealDetails = async (container, mealId) => {
   displayComments(meal.idMeal);
   const ul = document.querySelector('.ingridient-list');
   displayMealIngridients(ul, allMeals);
-  
 };
 
 const addClickListernersToLikeBtns = async () => {
