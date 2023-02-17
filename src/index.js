@@ -103,8 +103,8 @@ const removePopupListener = () => {
     popup.style.position = 'static';
     popup.style.display = 'none';
     document.querySelector('body').style.overflow = 'auto';
-  })
-}
+  });
+};
 
 const popupPage = async () => {
   const commentBtns = document.querySelectorAll('.comment-button');

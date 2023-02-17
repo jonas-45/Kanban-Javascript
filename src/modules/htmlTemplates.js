@@ -1,4 +1,4 @@
-import close from '../images/close.jpg'
+import close from '../images/close.jpg';
 /*eslint-disable*/
 const comment = (meal) => {
   let results;

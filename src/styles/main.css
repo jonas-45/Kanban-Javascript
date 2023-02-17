@@ -132,20 +132,18 @@ header {
   cursor: pointer;
 }
 
-#pop-up{
+#pop-up {
   display: none;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   border: 1px solid blueviolet;
-  background-color: aqua;
   background: rgba(0, 0, 0, 0.6);
   justify-content: center;
- 
 }
 
-#display-details{
+#display-details {
   background-color: white;
   top: 2%;
   bottom: 2%;
