@@ -1,4 +1,5 @@
 import './styles/main.css';
+import loading from './images/loading.gif';
 import likeImage from './images/like-image.png';
 import {
   getMeals, getLikes, displayLikes, saveLike, getMealIngridients,
@@ -128,6 +129,7 @@ const displayMealsCounter = async (mealsArr) => {
 };
 
 const displayMeals = async () => {
+  showLoading();
   const displayContainer = document.querySelector('.display-meals');
 
   const getAllMeals = await getMeals();
@@ -144,11 +146,19 @@ const displayMeals = async () => {
   </div>`;
   });
 
+  document.querySelector('.loading-div').style.display = 'none';
   displayContainer.innerHTML = mealsHtml;
   displayMealsCounter(getAllMeals);
   getAndDisplayLikes();
   addClickListernersToLikeBtns();
   popupPage();
 };
+
+const showLoading = () => {
+  const img = document.createElement('img');
+  img.src = loading;
+  img.alt = 'Loading image';
+  document.querySelector('.loading-div').appendChild(img);
+}
 
 displayMeals();

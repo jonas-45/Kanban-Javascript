@@ -52,6 +52,15 @@ header {
   margin-top: -50px;
 }
 
+.loading-div {
+ width: 100%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ margin-top: 200px;
+ margin-bottom: auto;
+}
+
 .nav-menu {
   display: flex;
   column-gap: 30px;
