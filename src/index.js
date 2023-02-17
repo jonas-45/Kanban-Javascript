@@ -1,7 +1,7 @@
 import './styles/main.css';
 import likeImage from './images/like-image.png';
 import {
-  getMeals, getLikes, displayLikes, saveLike, getMealIngridients, sendComment, getComments,
+  getMeals, getLikes, displayLikes, saveLike, getMealIngridients, sendComment, getComments,getTotalComment
 } from './modules/api.js';
 import comment from './modules/htmlTemplates.js';
 import totalMeals from './modules/mealsCounter.js';
@@ -13,7 +13,7 @@ const getAndDisplayLikes = async () => {
 
 const displayComments = async (mealId) => {
   const commentsArr = await getComments(mealId);
-  // document.querySelector('.comments-count').innerText = getTotalCount(commentsArr);
+  document.querySelector('.comments-count').innerText = getTotalComment(commentsArr);
   const ul = document.querySelector('.comments-list');
   const noComments = document.querySelector('.no-comments');
   if (commentsArr.length > 0) {
@@ -32,6 +32,8 @@ const displayComments = async (mealId) => {
 
   noComments.innerText = 'No comments available';
 };
+
+
 
 const addCommentButtonListener = async (mealId) => {
   const form = document.getElementById('form');
@@ -53,8 +55,6 @@ const addCommentButtonListener = async (mealId) => {
 
 // pop up
 const displayMealIngridients = async (ul, meal) => {
-  // const allMeals = await getMealIngridients(mealId);
-  // container.innerHTML = comment(allMeals);
   const ingredients = [];
   Object.keys((meal[0])).forEach((item) => {
     if (item.startsWith('strIng')) {
@@ -79,6 +79,7 @@ const displayMealDetails = async (container, mealId) => {
   displayComments(meal.idMeal);
   const ul = document.querySelector('.ingridient-list');
   displayMealIngridients(ul, allMeals);
+  
 };
 
 const addClickListernersToLikeBtns = async () => {
