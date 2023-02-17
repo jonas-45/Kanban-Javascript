@@ -31,20 +31,11 @@
 
 ## 🛠 Built With <a name="built-with"></a>
 
-### Tech Stack <a name="tech-stack"></a>
+***For this project we used the Following tech-stack:
 
-- For this project we used the Following tech-stack:
-
-<details>
-  <summary>Client</summary>
-  <ul>
-    <li><a href="https://html.com/">Html</a></li>
-    <li><a href="https://www.w3.org/Style/CSS/Overview.en.html">CSS</a></li>
-    <li><a href="https://www.javascript.com/">JavaScript</a></li>
-    <li><a href="https://webpack.js.org/">Webpack</a></li>
-    <li><a href="https://jestjs.io/">Jest</a></li>
-  </ul>
-</details>
+- HTML
+- CSS
+- JavaScript
 
 <!-- Features -->
 
@@ -65,7 +56,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](coming soon)
+- <a href="https://jonas-45.github.io/Kanban-Javascript/dist/">Live demo link</a>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -91,11 +82,13 @@ use the following link to setup npm if you dont have it already installed on you
 
 ### Setup
 
-Clone this repository to your desired folder using the above command:
+Clone this repository to your desired folder using the command below:
 
-```sh
-  cd my-folder
-  git clone 
+### Clone this repository
+
+```bash
+$ git clone https://github.com/jonas-45/Kanban-Javascript.git
+$ cd Kanban-Javascript
 ```
 
 ### Install
@@ -103,7 +96,7 @@ Clone this repository to your desired folder using the above command:
 Below  are the sets to Install this project with:
 1. Get a free API Key at [MealsDB](https://www.themealdb.com/api.php).
 
-2. Have a file to check you linter errors.
+2. Have a file to check for linter errors.
 
 3. Intall Webpackage, follow this [webpackInstallation](https://www.valentinog.com/blog/webpack/) guide if you have forgotten.
 
@@ -114,13 +107,17 @@ Below  are the sets to Install this project with:
 
 ### Usage
 
+### Run project
 To run the project:
-
-```sh
-  cd my-project
-  npm start
+```bash
+$ npm install
+$ npm run start # this will make webpack watching for your changes in code
 ```
 
+### Open page in browser
+```bash
+$ npm start
+```
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- AUTHORS -->
@@ -145,6 +142,7 @@ To run the project:
 ## 🔭 Future Features <a name="future-features"></a>
 
 - [ ] **Add good UI/UX Design**
+- [ ] **Add contact page to get in touch with visitors
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -154,7 +152,7 @@ To run the project:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/jonas-45/Kanban-Javascript/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
