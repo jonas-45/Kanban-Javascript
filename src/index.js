@@ -14,6 +14,13 @@ const getAndDisplayLikes = async () => {
   displayLikes(likesArray);
 };
 
+const showLoading = () => {
+  const img = document.createElement('img');
+  img.src = loading;
+  img.alt = 'Loading image';
+  document.querySelector('.loading-div').appendChild(img);
+};
+
 const displayComments = async (mealId) => {
   const commentsArr = await getComments(mealId);
   document.querySelector('.comments-count').innerText = getTotalComment(commentsArr);
@@ -153,12 +160,5 @@ const displayMeals = async () => {
   addClickListernersToLikeBtns();
   popupPage();
 };
-
-const showLoading = () => {
-  const img = document.createElement('img');
-  img.src = loading;
-  img.alt = 'Loading image';
-  document.querySelector('.loading-div').appendChild(img);
-}
 
 displayMeals();

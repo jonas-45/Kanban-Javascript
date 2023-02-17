@@ -53,12 +53,12 @@ header {
 }
 
 .loading-div {
- width: 100%;
- display: flex;
- justify-content: center;
- align-items: center;
- margin-top: 200px;
- margin-bottom: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 200px;
+  margin-bottom: auto;
 }
 
 .nav-menu {
