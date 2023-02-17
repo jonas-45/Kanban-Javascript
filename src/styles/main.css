@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
 
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 body {
   background-color: darksalmon;
   margin: 0;
@@ -207,11 +213,33 @@ header {
   cursor: pointer;
 }
 
+h1 {
+  font-size: 25px;
+}
+
 .namefood {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+  padding: 10px;
+  margin: 20px;
+}
+
+h2 {
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 6px;
+}
+
+hr {
+  margin-bottom: 10px;
+}
+
+.instructions {
+  font-size: 17px;
+  padding: 7px;
+  margin-bottom: 10px;
 }
 
 .list-items {
@@ -231,7 +259,7 @@ header {
 .ingridient-list {
   display: flex;
   flex-flow: row wrap;
-  column-gap: 10%;
+  column-gap: 5%;
 }
 
 .form {
@@ -239,7 +267,7 @@ header {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-top: 10px;
+  margin: 20px 0;
   height: 200px;
 }
 
@@ -311,7 +339,7 @@ header {
 }
 
 .comments ul li:hover {
-  transform: scale(0.9);
+  transform: scale(0.98);
   z-index: 100;
   color: white;
   font-size: 20px;

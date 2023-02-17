@@ -9,11 +9,11 @@ src="${image.strMealThumb}"
 alt="${image.strMeal}"/>
 </div>	
 <div class="namefood">
-<p>${image.strMeal}</p>
-<h2 class="title">${image.strCategory !== '' ? image.strCategory : 'No category'}</h2>
+<h1>${image.strMeal}</h1>
 </div>
 <div class="food-recipe">
-<h3>Ingredients</h3>
+<h2>Ingredients</h2>
+<hr>
 <div class="ingredients">
 </div>
 </div>
@@ -29,7 +29,8 @@ alt="${image.strMeal}"/>
     results += `
 <div class="description">
 <h2>Recipe</h2>
-<p>${recipe.strInstructions}</p>
+<hr>
+<p class="instructions">${recipe.strInstructions}</p>
 </div>
 <div class="comments">
 <h3>Comments<span class="comments-count">wait..</span></h3>
