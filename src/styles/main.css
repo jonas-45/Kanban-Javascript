@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
 body {
@@ -53,12 +54,12 @@ header {
 }
 
 .loading-div {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 200px;
-  margin-bottom: auto;
+ width: 100%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ margin-top: 200px;
+ margin-bottom: auto;
 }
 
 .nav-menu {
@@ -71,22 +72,26 @@ header {
 .navlink {
   margin-right: 30px;
   color: #e60b0b;
-  font-size: 25px;
+  font-size: 20px;
   font-weight: 800;
   text-decoration: none;
+  transition: all 0.1s;
 }
 
 .navlink:hover {
   color: #c7850a;
-  font-size: 27px;
 }
 
-#Seafood {
+.active {
+  color: rgb(11, 98, 101);
+}
+
+/* #Seafood {
   text-decoration: none;
   color: #e60b0b;
   font-size: 25px;
   font-weight: 800;
-}
+} */
 
 /* styles for the meals display section */
 #meals {
@@ -113,6 +118,12 @@ header {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   background-color: #fff;
   padding: 7px;
+  transition: all 1s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.1);
+  cursor: crosshair;
 }
 
 .meal-image {
@@ -131,20 +142,22 @@ header {
   margin-top: 20px;
   display: flex;
   justify-content: space-between;
-  font-size: 20px;
+  font-size: 18px;
+  font-style: normal;
 }
 
 .likes-text {
   margin-left: auto;
-  font-size: 20px;
+  font-size: 17px;
   margin-right: 10px;
-  padding: 0;
+  padding: 5px;
 }
 
 .comment-button {
   padding: 10px 20px;
   margin-bottom: 10px;
   cursor: pointer;
+  font-size: 16px;
 }
 
 #pop-up {
@@ -373,6 +386,12 @@ footer {
   width: 100%;
   bottom: 0;
   color: hotpink;
+}
+
+.container-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 footer p {
