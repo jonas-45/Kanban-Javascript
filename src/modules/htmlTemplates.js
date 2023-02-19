@@ -1,15 +1,15 @@
 import close from '../images/close.jpg';
 /*eslint-disable*/
-const comment = (meal) => {
+const mealDetail = (meal) => {
   let results;
-  meal.forEach((image) => {
-    results = `<img class="close-popup" src="${close}" alt="popup close button"/>
+  //meal.forEach((image) => {
+results = `<div class="close-img-container"><img class="close-popup" src="${close}" alt="popup close button"/></div>
 <div class="image"><img
-src="${image.strMealThumb}"
-alt="${image.strMeal}"/>
+src="${meal.strMealThumb}"
+alt="${meal.strMeal}"/>
 </div>	
 <div class="namefood">
-<h1>${image.strMeal}</h1>
+<h1>${meal.strMeal}</h1>
 </div>
 <div class="food-recipe">
 <h2>Ingredients</h2>
@@ -18,19 +18,18 @@ alt="${image.strMeal}"/>
 </div>
 </div>
 `;
-  });
     results += `
 <div class="list-container">
 <ul class="ingridient-list">
 </ul>
 </div>
 `;
-  meal.forEach((recipe) => {
-    results += `
+ // meal.forEach((recipe) => {
+results += `
 <div class="description">
 <h2>Recipe</h2>
 <hr>
-<p class="instructions">${recipe.strInstructions}</p>
+<p class="instructions">${meal.strInstructions}</p>
 </div>
 <div class="comments">
 <h3>Comments<span class="comments-count">wait..</span></h3>
@@ -46,9 +45,9 @@ alt="${image.strMeal}"/>
 <button type="submit" class="btn">Comments</button>
 </form>
 `;
-  });
+ // });
 
   return results;
 };
 
-export default comment;
+export default mealDetail;
