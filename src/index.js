@@ -2,11 +2,11 @@ import './styles/main.css';
 import loading from './images/loading.gif';
 import likeImage from './images/like-image.png';
 import {
-  getMeals, getLikes, displayLikes, saveLike, getMealIngridients,
+  getMeals, getLikes, displayLikes, saveLike, getMealDetails,
   sendComment, getComments,
 } from './modules/api.js';
 import getTotalComment from './modules/commentCountapi.js';
-import comment from './modules/htmlTemplates.js';
+import mealDetail from './modules/htmlTemplates.js';
 import totalMeals from './modules/mealsCounter.js';
 
 const getAndDisplayLikes = async () => {
@@ -23,7 +23,9 @@ const showLoading = () => {
 
 const displayComments = async (mealId) => {
   const commentsArr = await getComments(mealId);
-  document.querySelector('.comments-count').innerText = getTotalComment(commentsArr);
+  const commentCounterNode = document.querySelector('.comments-count');
+  commentCounterNode.innerText = getTotalComment(commentsArr);
+  commentCounterNode.classList.remove('borderless');
   const ul = document.querySelector('.comments-list');
   const noComments = document.querySelector('.no-comments');
   if (commentsArr.length > 0) {
@@ -79,14 +81,15 @@ const displayMealIngridients = async (ul, meal) => {
 };
 
 const displayMealDetails = async (container, mealId) => {
-  const allMeals = await getMealIngridients(mealId);
-  const meal = await allMeals.find((meal) => meal.idMeal === mealId);
+  const meal = await getMealDetails(mealId);
+  //const meal = await allMeals.find((meal) => meal.idMeal === mealId);
   document.querySelector('body').style.overflow = 'hidden';
-  container.innerHTML = comment(allMeals);
+  container.innerHTML = mealDetail(meal[0]);
+  document.querySelector('.comments-count').classList.add('borderless');
   addCommentButtonListener(meal.idMeal);
   displayComments(meal.idMeal);
   const ul = document.querySelector('.ingridient-list');
-  displayMealIngridients(ul, allMeals);
+  displayMealIngridients(ul, meal);
 };
 
 const addClickListernersToLikeBtns = async () => {

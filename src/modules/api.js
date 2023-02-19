@@ -10,11 +10,11 @@ const getMeals = async () => {
   return mealsArr.meals;
 };
 
-const getMealIngridients = async (id) => {
-  const ingredientsArr = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
+const getMealDetails = async (id) => {
+  const details = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
     .then((resp) => resp.json())
     .catch((error) => error);
-  return ingredientsArr.meals;
+  return details.meals;
 };
 
 const getDetails = async (detailsId) => {
@@ -75,5 +75,5 @@ const getComments = async (mealId) => {
 
 export {
   getMeals, getLikes, displayLikes, saveLike, getDetails,
-  getMealIngridients, sendComment, getComments,
+  getMealDetails, sendComment, getComments,
 };
